@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col-md-4" *ngFor="let salidaModel of service.list">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4 class="card-title text-md-center">{{salidaModel.boatName}} - {{salidaModel.boatID}}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Membresia: {{salidaModel.typeUser}}</p>
+                    <p class="card-text">Nombre: {{salidaModel.userName}}</p>
+                    <p class="card-text">Cedula: {{salidaModel.userId}}</p>
+                    <p class="card-text">Destino: {{salidaModel.destiny}}</p>
+                    <p class="card-text">Fecha Salida: {{salidaModel.fecha}}</p>
+                    <p class="card-text">Hora Salida: {{salidaModel.hora}}</p>
+                    <p class="card-text">Cuota: {{salidaModel.cuota}}$</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <td>
+                        <i (click)="deleteForm(salidaModel.id)" class="far fa-trash-alt fa-lg text-danger"
+                            title="Borrar salida"></i>
+                    </td>
+                    <td>
+                        <i (click)="editForm(salidaModel)" class="fas fa-user-edit fa-lg text-primary"
+                            routerLink="/salidaForm" title="Editar salida"></i>
+                    </td>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

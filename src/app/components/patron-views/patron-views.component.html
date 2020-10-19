@@ -1,0 +1,28 @@
+<div class="container">
+    <app-patron-form></app-patron-form>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-4" *ngFor="let socioModel of service.list">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4 class="card-title text-md-center">{{socioModel.name}}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Cedula: {{socioModel.credentialID}}</p>
+                    <p class="card-text">Direccion: {{socioModel.address}}</p>
+                    <p class="card-text">Telefono: {{socioModel.phone}}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <td>
+                        <i (click)="deleteForm(socioModel.credentialID)" class="far fa-trash-alt fa-lg text-danger" title="Borrar patron"></i>
+                    </td>
+                    <td>
+                        <i (click)="editForm(socioModel)" class="fas fa-user-edit fa-lg text-primary" title="Editar patron"></i>
+                    </td>
+                    <td>
+                        <i (click)="sendPatron(socioModel.credentialID, socioModel.name, 'Patron')" class="fas fa-anchor fa-lg text-info"  routerLink="/salidaForm" title="Salida de barco"></i>
+                    </td>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

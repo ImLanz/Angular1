@@ -1,0 +1,50 @@
+<div class="col-md-9 mx-auto mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>REGISTRAR SOCIO</h3>
+        </div>
+        <ng-container *ngIf="service.update; else elseTemplate">
+            <form #form="ngForm" class="form-group" (submit)="Submit(form)" >
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="service.data.name" placeholder="Ingrese Nombre Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="credentialID" #credentialID="ngModel" [(ngModel)]="service.data.credentialID" placeholder="Ingrese Cedula" disabled required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="service.data.phone" placeholder="Ingrese Direccion" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="service.data.address" placeholder="Ingrese Celular" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <form #form="ngForm" class="form-group" (submit)="Submit(form)" >
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="service.data.name" placeholder="Ingrese Nombre Completo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="credentialID" #credentialID="ngModel" [(ngModel)]="service.data.credentialID" placeholder="Ingrese Cedula" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="phone" #phone="ngModel" [(ngModel)]="service.data.phone" placeholder="Ingrese Direccion" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="address" #address="ngModel" [(ngModel)]="service.data.address" placeholder="Ingrese Celular" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+    <app-socio-views></app-socio-views>
+</div>

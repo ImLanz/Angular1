@@ -1,0 +1,26 @@
+<div class="container">
+    <app-barco-form></app-barco-form>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-4" *ngFor="let barcoModel of service.list">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h4 class="card-title text-md-center">{{barcoModel.boatName}}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Matricula: {{barcoModel.boatID}}</p>
+                    <p class="card-text">Cuota: {{barcoModel.boatFee}}$</p>
+                    <p class="card-text">Numero de Amarre: {{barcoModel.mooringNumber}}</p>
+                    <p class="card-text">Cedula Socio: {{barcoModel.credentialPatnerID}}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <td>
+                        <i (click)="deleteForm(barcoModel.boatID)" class="far fa-trash-alt fa-lg text-danger" title="Borrar barco"></i>
+                    </td>
+                    <td>
+                        <i (click)="editForm(barcoModel)" class="fas fa-user-edit fa-lg text-primary" title="Editar barco"></i>
+                    </td>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

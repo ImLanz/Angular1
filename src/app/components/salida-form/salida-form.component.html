@@ -1,0 +1,32 @@
+<div class="col-md-9 mx-auto mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>REGISTRAR SALIDA</h3>
+        </div>
+        <form #form="ngForm" class="form-group" (submit)="Submit(form)">
+            <div class="card-body">
+                <div class="form-group">
+                    <input class="form-control" name="userName" placeholder="Nombre" #userName="ngModel" [(ngModel)]="serviceSalida.data.userName" disabled>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="boatID" #boatID="ngModel" [(ngModel)]="serviceSalida.data.boatID">
+                        <option *ngFor="let dataBarco of serviceBarco.list" value="{{dataBarco.boatID}}">{{dataBarco.boatName}}-{{dataBarco.boatID}}-{{dataBarco.boatFee}}$</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" name="destiny" placeholder="Destino" #destiny="ngModel" [(ngModel)]="serviceSalida.data.destiny">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" name="fecha" placeholder="Fecha" #fecha="ngModel" [(ngModel)]="serviceSalida.data.fecha">
+                </div>
+                <div class="form-group">
+                    <input type="time" class="form-control" name="hora" placeholder="Hora" #hora="ngModel" [(ngModel)]="serviceSalida.data.hora">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <app-salida-views></app-salida-views>
+</div>

@@ -1,0 +1,59 @@
+<div class="col-md-9 mx-auto mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>REGISTRAR BARCO</h3>
+        </div>
+        <ng-container *ngIf="serviceBarco.update; else elseTemplate">
+            <form #form="ngForm" class="form-group" (submit)="Submit(form)">
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="boatID" class="form-control" #boatID="ngModel" [(ngModel)]="serviceBarco.data.boatID" placeholder="Ingrese Matricula" disabled required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="boatName" #boatName="ngModel" [(ngModel)]="serviceBarco.data.boatName" placeholder="Ingrese Nombre del Barco" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="boatFee" #boatFee="ngModel" [(ngModel)]="serviceBarco.data.boatFee" placeholder="Ingrese Cuota" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="mooringNumber" #mooringNumber="ngModel" [(ngModel)]="serviceBarco.data.mooringNumber" placeholder="Ingrese Numero de Amarre" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="credentialPatnerID" #credentialPatnerID="ngModel" [(ngModel)]="serviceBarco.data.credentialPatnerID" class="form-control" disabled>
+                            <option *ngFor="let dataSocio of serviceSocio.list" value={{dataSocio.credentialID}}>{{dataSocio.name}}-{{dataSocio.credentialID}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <form #form="ngForm" class="form-group" (submit)="Submit(form)">
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" name="boatID" class="form-control" #boatID="ngModel" [(ngModel)]="serviceBarco.data.boatID" placeholder="Ingrese Matricula" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="boatName" #boatName="ngModel" [(ngModel)]="serviceBarco.data.boatName" placeholder="Ingrese Nombre del Barco" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="boatFee" #boatFee="ngModel" [(ngModel)]="serviceBarco.data.boatFee" placeholder="Ingrese Cuota" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="mooringNumber" #mooringNumber="ngModel" [(ngModel)]="serviceBarco.data.mooringNumber" placeholder="Ingrese Numero de Amarre" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="credentialPatnerID" #credentialPatnerID="ngModel" [(ngModel)]="serviceBarco.data.credentialPatnerID" class="form-control nav-link dropdown-toggle">
+                            <option *ngFor="let dataSocio of serviceSocio.list" class="dropdown-item" value={{dataSocio.credentialID}}>{{dataSocio.name}}-{{dataSocio.credentialID}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+</div>
